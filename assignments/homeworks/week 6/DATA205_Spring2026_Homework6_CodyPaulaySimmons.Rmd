@@ -1,0 +1,72 @@
+---
+title: "DATA205_Spring2026_Homework6_CodyPaulaySimmons"
+author: "Cody Paulay-Simmons"
+output: html_document
+---
+
+# Load required packages
+```{r}
+library(DBI)
+library(RSQLite)
+library(readr)
+```
+
+# Create the database
+```{r}
+con <- dbConnect(RSQLite::SQLite(), "olympics.db")
+```
+
+# Import the datasets
+```{r}
+athletes <- read_csv("athlete_events.csv")
+cities <- read_csv("host_city_locations.csv")
+```
+
+# Create two tables
+```{r}
+dbWriteTable(con, "athlete_events", athletes)
+dbWriteTable(con, "host_city_locations", cities)
+```
+
+## Question 1: How many records are in athlete_events?
+```{sql connection=con}
+SELECT COUNT(*) 
+FROM athlete_events;
+```
+
+## Question 2: How many different athletes competed in London?
+```{sql connection=con}
+SELECT COUNT(DISTINCT Name)
+FROM athlete_events
+WHERE City = 'London';
+```
+
+## Question 3: Which Olympics host city is furthest north?
+```{sql connection=con}
+SELECT City
+FROM host_city_locations
+ORDER BY lat DESC
+LIMIT 1;
+```
+
+## Question 4: List all host cities with no duplicates
+```{sql connection=con}
+SELECT DISTINCT City
+FROM host_city_locations;
+```
+
+# Store result
+```{r}
+cities_list <- dbGetQuery(con, "
+SELECT DISTINCT City
+FROM host_city_locations;
+")
+```
+
+# Export required CSV
+```{r}
+write.csv(cities_list,
+          "host_cities_CodyPaulaySimmons.csv",
+          row.names = FALSE)
+```
+
