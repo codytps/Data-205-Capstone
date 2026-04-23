@@ -38,16 +38,21 @@ ggplot(long_data, aes(x = Region, y = Value, fill = Region)) +
 # Analysis Insights
 # ------------------
 
-# Washington, D.C. shows higher median income and earnings compared to Hawaii County.
+# Washington, D.C. has higher median income and earnings 
+# compared to Hawaii County.
 
-# However, D.C. also has higher unemployment and slightly higher poverty rates.
+# D.C. also has a slightly higher poverty rate and unemployment.
 
-# This suggests that while D.C. has stronger earning potential,
-# the benefits may not be evenly distributed across the population.
+# This suggests that the higher income in D.C. may be offset by a higher
+# cost of living, leading to similar levels of economic pressure as seen
+# in Hawaii County.
 
-# Hawaii County shows lower income levels,
-# but also slightly lower unemployment and poverty,
-# indicating a more balanced but lower-income economy.
+# Despite lower income levels, Hawaii County maintains comparable poverty rates,
+# which may indicate a lower cost of living relative to income.
 
-# Overall, the comparison highlights how higher income does not necessarily
-# mean lower poverty, pointing toward possible income inequality in D.C.
+# Overall, the results suggest that affordability challenges exist in both regions,
+# and that higher income does not necessarily translate to better financial stability.
+
+# This supports the idea that individuals who can afford to live in Washington, D.C.
+# may also be able to live in Hawaii County, as both regions show similar
+# socioeconomic pressures.
