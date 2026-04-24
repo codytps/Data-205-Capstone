@@ -4,27 +4,47 @@
 # Project: DC vs Hawaii County
 # -----------------------------
 
+# -----------------
 # Load EDA results
-source("EDA_CodyPaulaySimmons.R")
+# -----------------
 
+source("~/Desktop/Data 205/Capstone Project/Homeworks/EDA_CodyPaulaySimmons.R")
+
+# ---------------
 # Create dataset
+# ---------------
+
 analysis_data <- data.frame(Region = c("DC", "Hawaii County"),
                             Unemployment = c(dc_unemp, hi_unemp),
                             Earnings = c(dc_earn, hi_earn),
                             Income = c(dc_income, hi_income),
                             Poverty = c(dc_poverty, hi_poverty))
-
+# -----------
 # Check data
+# -----------
+
 str(analysis_data)
 summary(analysis_data)
 
+# ---------------
+# Load libraries
+# ---------------
+
 library(ggplot2)
 library(tidyr)
+
+# ---------------------
+# Create a new dataset
+# ---------------------
 
 long_data <- pivot_longer(analysis_data,
                           cols = -Region,
                           names_to = "Variable",
                           values_to = "Value")
+
+# -------------------------
+# Create a facet_wrap plot
+# -------------------------
 
 ggplot(long_data, aes(x = Region, y = Value, fill = Region)) +
   geom_bar(stat = "identity") +
@@ -56,3 +76,23 @@ ggplot(long_data, aes(x = Region, y = Value, fill = Region)) +
 # This supports the idea that individuals who can afford to live in Washington, D.C.
 # may also be able to live in Hawaii County, as both regions show similar
 # socioeconomic pressures.
+
+# ------------------
+# Additional Metric
+# ------------------
+
+analysis_data$Income_to_Poverty <- analysis_data$Income / analysis_data$Poverty
+analysis_data
+
+# --------------------------
+# Additional Metric Insight
+# --------------------------
+
+# The income-to-poverty ratio compares how far income goes relative
+# to poverty levels in each region.
+
+# While D.C. has higher income, its higher poverty rate reduces
+# the advantage, resulting in a ratio that is not drastically different
+# from Hawaii County.
+
+# This supports the idea that both regions face similar affordability challenges.
