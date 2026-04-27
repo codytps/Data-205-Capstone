@@ -63,9 +63,8 @@ ggplot(long_data, aes(x = Region, y = Value, fill = Region)) +
 
 # D.C. also has a slightly higher poverty rate and unemployment.
 
-# This suggests that the higher income in D.C. may be offset by a higher
-# cost of living, leading to similar levels of economic pressure as seen
-# in Hawaii County.
+# This suggests that higher income in D.C. may not fully reduce economic pressure,
+# since poverty and unemployment are also higher than in Hawaii County.
 
 # Despite lower income levels, Hawaii County maintains comparable poverty rates,
 # which may indicate a lower cost of living relative to income.
@@ -84,15 +83,30 @@ ggplot(long_data, aes(x = Region, y = Value, fill = Region)) +
 analysis_data$Income_to_Poverty <- analysis_data$Income / analysis_data$Poverty
 analysis_data
 
+# ----------------------
+# Additional Metric Plot
+# ----------------------
+
+ggplot(analysis_data, aes(x = Region, y = Income_to_Poverty, fill = Region)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Income-to-Poverty Ratio Comparison",
+       x = "Region",
+       y = "Income / Poverty Rate") +
+  scale_fill_manual(values = c("red", "navy"))
+
 # --------------------------
 # Additional Metric Insight
 # --------------------------
 
-# The income-to-poverty ratio compares how far income goes relative
-# to poverty levels in each region.
+# The income-to-poverty ratio helps compare how far income goes
+# relative to poverty levels in each region.
 
-# While D.C. has higher income, its higher poverty rate reduces
-# the advantage, resulting in a ratio that is not drastically different
-# from Hawaii County.
+# Although Washington, D.C. has higher income, its slightly higher
+# poverty rate reduces the overall advantage.
 
-# This supports the idea that both regions face similar affordability challenges.
+# The resulting ratios between D.C. and Hawaii County are not drastically different,
+# suggesting that both regions experience similar levels of economic pressure.
+
+# This supports the idea that affordability challenges are comparable,
+# meaning individuals who can afford to live in D.C. may also be able
+# to live in Hawaii County.
