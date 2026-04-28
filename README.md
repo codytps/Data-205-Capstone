@@ -1,29 +1,33 @@
-# Data 205 Capstone Project
+# Data 205 Capstone Project  
 
-## Socioeconomic Comparison: Hawaii County vs Washington, D.C.
+## Affordability Analysis: Hawaii County vs Washington, D.C.
 
-## Overview
-This project analyzes and compares socioeconomic characteristics between Hawaii County, Hawaii and Washington, D.C. using data from the U.S. Census American Community Survey (ACS). The focus is on identifying key differences in economic conditions, income, and population well-being.
+## Overview  
+This project evaluates whether higher income levels in Washington, D.C. translate to  affordability compared to Hawaii County, Hawaii. Using data from the U.S. Census American Community Survey (ACS), the analysis examines income, employment, and poverty to assess overall economic pressure between the two regions.
 
-## Data
-- Source: U.S. Census Bureau (data.census.gov)
-- Dataset: DP03 (Economic Characteristics) & DP02 (Social Characteristics)
+## Research Question  
+Does higher income in Washington, D.C. result in better affordability, or do similar poverty levels suggest comparable economic pressure to Hawaii County?
 
-## Exploratory Data Analysis (EDA)
-The analysis includes visual comparisons of:
+## Data  
+- Source: U.S. Census Bureau (data.census.gov)  
+- Datasets: DP03 (Economic Characteristics) & DP02 (Social Characteristics)  
+
+## Exploratory Data Analysis (EDA)  
+The analysis includes comparisons of:  
 - Unemployment Rate  
 - Median Earnings  
 - Median Household Income  
 - Poverty Rate  
 
-## Key Findings
+## Key Findings  
 - Washington, D.C. has higher income and earnings than Hawaii County  
-- Washington, D.C. also has higher unemployment and poverty rates  
-- This suggests stronger economic opportunity alongside greater inequality in D.C.
+- D.C. also has slightly higher unemployment and poverty rates  
+- This suggests that higher income does not necessarily translate to improved affordability  
+- Both regions appear to experience similar levels of economic pressure  
 
-## Tools Used
+## Tools Used  
 - R  
-- ggplot2
+- ggplot2  
 
-## Author
-Cody Paulay-Simmons
+## Author  
+Cody Paulay-Simmons  
